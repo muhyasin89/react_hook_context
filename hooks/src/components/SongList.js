@@ -1,12 +1,27 @@
 import React from 'react';
 
 const SongList = () => {
-     return (
+    useState([
+            {
+                title: 'peterpan--Semua Tentang Kita',
+                artist: 'peterpan',
+                id: 1
+            },
+            { 
+                title: 'Mimpi Yang Sempurna', 
+                artist: 'peterpan',
+                id:2 
+            },
+            {
+                title: 'peterpan--Bintang di Surga',
+                artist: 'peterpan',
+                id: 3
+            } 
+    ]);
+    return (
          <div className="song-list">
             <ul>
-                <li> peterpan--Semua Tentang Kita </li>
-                <li> peterpan-- Mimpi Yang Sempurna </li>
-                <li> peterpan--Bintang di Surga </li>
+              
             </ul>
          </div>
      );
