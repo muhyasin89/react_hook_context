@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
+import uuid from 'uuid/v1';
 
 const SongList = () => {
-    useState([
+    const  [songs, setSongs] = useState([
             {
                 title: 'peterpan--Semua Tentang Kita',
                 artist: 'peterpan',
@@ -10,7 +11,7 @@ const SongList = () => {
             { 
                 title: 'Mimpi Yang Sempurna', 
                 artist: 'peterpan',
-                id:2 
+                id: 2
             },
             {
                 title: 'peterpan--Bintang di Surga',
@@ -18,11 +19,26 @@ const SongList = () => {
                 id: 3
             } 
     ]);
+
+    const addSongs = () => {
+        setSongs([
+            ...songs, {
+                title: 'new songs',
+                artist: 'nobody',
+                id: uuid()
+            }
+        ]);
+    }
     return (
          <div className="song-list">
             <ul>
-              
+              { songs.map(song => { 
+                return (<li key={ song.id }>{song.artist} -- {song.title}</li>);
+              }) }
             </ul>
+            < button onClick = {
+                addSongs
+            } > Add a Song < /button>
          </div>
      );
 }
