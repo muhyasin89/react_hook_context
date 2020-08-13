@@ -1,5 +1,5 @@
 import React from 'react';
-import SongList from './components/SongList';
+import VideoList from './components/VideoList';
 
 function App() {
   var uuid = require('uuid');
@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
        <h2 align = "center"> Welcome </h2>
-       <SongList />
+       < VideoList / >
     </div>
   );
 }
