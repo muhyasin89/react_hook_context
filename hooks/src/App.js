@@ -1,14 +1,14 @@
 import React from 'react';
-import VideoList from './components/VideoList';
+import './App.css';
 
 function App() {
-  var uuid = require('uuid');
-  const uuidv1 = require('uuid/v1');
-
   return (
     <div className="App">
-       <h2 align = "center"> Welcome </h2>
-       < VideoList / >
+      <header className="App-header">
+       
+          
+        <h1> Welcome Home to Hook</h1>
+      </header>
     </div>
   );
 }
