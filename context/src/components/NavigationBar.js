@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+
+import styled from 'styled-components';
+
 import {
     Nav,
     Navbar,
@@ -8,9 +11,24 @@ import {
     Button
 } from 'react-bootstrap';
 
-class NavigationBar extends Component {
+import ThemeContext from '../contexts/ThemeContext';
 
+
+
+class NavigationBar extends Component {
+    static contextType = ThemeContext;
+    
     render() {
+        console.log(this.context);
+        const { isLightTheme, light, dark } = this.context;
+        const theme =  isLightTheme ? light : dark;
+    
+        // const Styles = styled.div`
+        //     #nav{
+        //         background: ${theme.ui},
+        //         color: ${theme.syntax}
+        //     }
+        // `;
         return (
         <Navbar bg="light" expand="lg" >
             <Navbar.Brand href = "#home" > React - Bootstrap </Navbar.Brand> 
