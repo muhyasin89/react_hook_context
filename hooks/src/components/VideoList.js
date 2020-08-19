@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NewVideoForm from './NewVideoForm';
 import {
     v4 as uuidv4
@@ -28,6 +28,8 @@ const VideoList = () => {
         }
     ]);
 
+    const [age, setAge] = useState(20);
+
     const addVideo = (title, author, link) => {
         setVideos([...videos, {
             title,
@@ -37,7 +39,10 @@ const VideoList = () => {
         }]);
     }
 
-    
+    useEffect(() => {
+        console.log('useEffect hook run', videos);
+    }, [videos]);
+
     return (
         <div className="videoList">
             <ul>
@@ -48,6 +53,7 @@ const VideoList = () => {
             })}
         </ul>
         <NewVideoForm addVideo={addVideo} />
+        <button onClick={() => setAge(age+1)}>Add 1 to age: {age}</button>
         </div>
     );
 }
