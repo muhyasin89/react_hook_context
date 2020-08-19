@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import NewVideoForm from './NewVideoForm';
 import {
     v4 as uuidv4
 } from 'uuid';
@@ -27,11 +28,11 @@ const VideoList = () => {
         }
     ]);
 
-    const addVideo = () => {
+    const addVideo = (title, author, link) => {
         setVideos([...videos, {
-            title: 'new videos',
-            author: 'random',
-            link: '#',
+            title,
+            author,
+            link,
             id: uuidv4()
         }]);
     }
@@ -42,11 +43,11 @@ const VideoList = () => {
             <ul>
             {videos.map(video => {
                 return (
-                    <li key={video.id}>{video.title}</li>
+                    <li key={video.id}>{video.title} - {video.link} - {video.author}</li>
                 );
             })}
         </ul>
-        <button onClick={addVideo}>Add a Video</button>
+        <NewVideoForm addVideo={addVideo} />
         </div>
     );
 }
